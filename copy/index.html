@@ -25,8 +25,10 @@ function copy_from_url() {
         textInput.setAttribute('value', text)
         textInput.select();
         textInput.setSelectionRange(0, 99999); // For mobile devices
-        navigator.clipboard.writeText(text)
-        alert("Copied to clipboard: " + text)
+        if(!isMobileDevice()) {
+            navigator.clipboard.writeText(text)
+            alert("Copied to clipboard: " + text)
+        }
     }
 }
 copy_from_url()
